@@ -17,7 +17,9 @@ A complete, real-world example of the oracle-first workflow from start to finish
 
 ---
 
-## PHASE 1: PLAN — Extract Oracle from PRD
+## PHASE 1: PLAN — Create Oracle (Human-Authored Approach)
+
+⚠️ **NOTE:** This walkthrough shows the **human-authored oracle** approach (recommended for security-critical features). See [Alternative: AI-Suggested Oracle](#alternative-ai-suggested-oracle) at the end.
 
 ### Step 1a: The Original PRD
 
@@ -49,18 +51,17 @@ The link expires after 24 hours for security.
 - Bulk password resets (Phase 2)
 ```
 
-### Step 1b: Run Plan Prompt
+### Step 1b: Human Reads PRD and Writes Oracle
 
-**Prompt:** `/prompts/plan/extract-oracle-from-prd.md`
+**Approach:** Use `/guides/human-authored-oracle-guide.md` to write the oracle from scratch.
 
-**Input:**
-```
-PRD: [above text]
-Domain: E-commerce platform, staging environment
-Risk ranking: Security-critical (authentication flow)
-```
+**The Tester reads the PRD and thinks:**
+- "This is security-critical (password reset)"
+- "I care about: happy path, edge cases, security"
+- "I'm worried about: token leaks, timing attacks, rate limiting"
+- "I need to verify: session termination, password actually changes"
 
-**Claude Response (condensed):**
+**Human-Authored Oracle (Tester's Thinking):**
 
 ```markdown
 # Password Reset Oracle
@@ -103,9 +104,14 @@ Risk ranking: Security-critical (authentication flow)
 
 ### Step 1 Outcome
 
-✅ **Oracle extracted.** Human review: "Yes, this covers what we care about."
+✅ **Oracle authored by human tester (your critical thinking preserved).**
 
-**Oracle is now the single source of truth.** It drives all downstream decisions.
+The oracle reflects YOUR priorities:
+- What you think matters most (security, not just happy path)
+- What you're worried about (enumeration attacks, token leaks)
+- What you'd explain to the product team
+
+**This oracle is now the single source of truth.** It drives all downstream decisions. And because YOU authored it (not AI), you'll catch defects at ~50-60% F1 instead of ~30-40%.
 
 ---
 

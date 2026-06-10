@@ -14,6 +14,32 @@ This is the foundation for all downstream work. The oracle is what the test auth
 
 ---
 
+## ⚠️ Critical Warning: Anchoring Effect
+
+**This prompt SUGGESTS an oracle. It does NOT author it.**
+
+Research shows that when humans just approve an AI-suggested oracle, they lose critical thinking (anchoring effect). They score ~40% F1 on defect detection vs. ~50-60% when authoring oracle from scratch.
+
+**How to use this prompt:**
+
+✅ **Option 1: Use as suggestion (recommended)**
+- Run this prompt and get AI's suggestion
+- Then use `/prompts/plan/review-ai-suggested-oracle.md` to review critically
+- Decide: accept, refine, or completely rewrite
+
+❌ **Option 2: Just approve (NOT recommended)**
+- Run this prompt, read the output, say "looks good"
+- STOP. You're creating anchoring bias.
+
+✅ **Option 3: Write your own first (best for security-critical)**
+- Use `/guides/human-authored-oracle-guide.md` to write your own oracle
+- Then compare with AI's suggestion (optional)
+- Your oracle + your thinking = best results
+
+**Bottom line:** If accuracy matters, YOU author the oracle. Use this prompt for suggestions or second opinions only.
+
+---
+
 ## Prerequisites
 
 - A PRD, spec, or feature description (text)

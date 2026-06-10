@@ -1,6 +1,8 @@
-# Architecture: Three Usage Modes
+# Architecture: Three Usage Modes + Oracle Authorship
 
 This framework can be used **three distinct ways**. Understand which one fits your needs.
+
+**CRITICAL:** Before choosing a usage mode, you must choose an **oracle authorship mode**. This determines the quality and accuracy of your tests.
 
 ---
 
@@ -22,6 +24,35 @@ Output: Complete framework          Output: Working framework
 
 FAST (2 min)                        FLEXIBLE (10 min)              BALANCED (5 min)
 LOW CONTROL                         HIGH CONTROL                   HIGH CONTROL
+```
+
+---
+
+## Oracle Authorship Decision Tree
+
+**Before you start testing, decide how you'll create your oracle:**
+
+```
+Is this feature security-critical?
+  ├─ YES → Human-authored oracle (do NOT use AI suggestions)
+  │        Read: /guides/human-authored-oracle-guide.md
+  │        Time: 30 minutes, Accuracy: ~50-60% F1
+  │
+  └─ NO → Is it regulatory/compliance-critical?
+           ├─ YES → Human-authored oracle
+           │
+           └─ NO → Is it high-risk to your business?
+                    ├─ YES → Human-authored oracle
+                    │
+                    └─ NO → Do you have time for 30 min?
+                             ├─ YES → Human-authored oracle (preferred)
+                             │
+                             └─ NO → AI-suggested oracle (must review critically)
+                                      Read: /prompts/plan/review-ai-suggested-oracle.md
+                                      Time: 20 minutes, Accuracy: ~40-45% F1
+                                      WARNING: Anchoring effect risk
+
+NEVER: Just approve AI oracle wholesale (leads to anchoring effect, ~30% F1)
 ```
 
 ---

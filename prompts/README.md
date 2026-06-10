@@ -8,6 +8,27 @@ This is the actionable heart of the repo. Every prompt here is:
 - **Suitable for any LLM** — Claude, but also others; they're written to be portable
 - **Annotated with tradeoffs** — cost, latency, accuracy, what it assumes, what it doesn't handle
 
+## Oracle Authorship: Three Modes
+
+Before you use any prompt in `/plan`, understand how oracles are created:
+
+| Mode | Method | F1 Score | Time | Risk | Best For |
+|------|--------|----------|------|------|----------|
+| **Human-Authored** | Human writes checklist from scratch | ~50-60% 🟢 | 30 min | Low | Security-critical, regulatory, high-risk |
+| **AI-Suggested** | AI suggests checklist, human reviews critically | ~40-45% 🟡 | 20 min | Medium | Routine features, time-constrained |
+| **AI-Generated** | AI writes checklist, human approves | ~30-40% 🔴 | 5 min | High ⚠️ | NOT RECOMMENDED (anchoring effect) |
+
+**Key insight:** F1 scores improve dramatically when humans author oracles from scratch (research-backed).
+
+**How to avoid anchoring effect:**
+1. **Prefer human-authored** — Use `/guides/human-authored-oracle-guide.md`
+2. **If using AI suggestions** — Use `/prompts/plan/review-ai-suggested-oracle.md` to review critically
+3. **Never just approve** — AI suggestions are starting points, not finished oracles
+
+See `/concepts/oracle-executor-principle.md` for detailed explanation of anchoring effect.
+
+---
+
 ## The Five Lifecycle Stages
 
 ### `/plan` — Plan & Risk Analysis
