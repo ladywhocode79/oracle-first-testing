@@ -50,7 +50,7 @@ This split is the load-bearing principle in every prompt, skill, and pattern in 
 - [oracle-executor-principle.md](concepts/oracle-executor-principle.md) — Research-backed, the foundation
 
 ### 🎯 Prompts (Reusable Patterns)
-Five lifecycle stages, each with detailed prompts:
+Five lifecycle stages, each with detailed prompts (tool-agnostic):
 
 | Stage | Use For | Prompt |
 |-------|---------|--------|
@@ -59,6 +59,44 @@ Five lifecycle stages, each with detailed prompts:
 | **Execute** | Tests → Pass/fail report | [run-tests-and-report.md](prompts/execute/run-tests-and-report.md) |
 | **Heal** | Failures → Diagnosis + fix | [diagnose-test-failure.md](prompts/heal/diagnose-test-failure.md) |
 | **Analyze** | Results → Readiness | [summarize-results.md](prompts/analyze/summarize-results.md) |
+
+### 🛠️ Claude Code Skills (Production Implementation)
+Ready-to-use skills that implement the oracle-first workflow for your language:
+
+| Skill | Purpose | Languages/Frameworks | Status |
+|-------|---------|---------------------|--------|
+| **automation-architect** | Orchestrator skill — interview, route, scaffold | Multi-language | ✅ Ready |
+| **automation-architect-python** | Python track implementation | Pytest, Pydantic, requests, Playwright (web) | ✅ Ready |
+| **automation-architect-java** | Java track implementation | TestNG, RestAssured, Selenium WebDriver, Jackson | ✅ Ready |
+| **automation-architect-mock** | Mock server & stub setup | WireMock, Docker, cross-cutting | ✅ Ready |
+| **automation-architect-nfr** | NFR testing (performance, security) | k6, Gatling, OWASP ZAP, Chaos patterns | ✅ Ready |
+
+**Installation:**
+```bash
+cp -r automation-architect* ~/.claude/skills/
+```
+
+**Usage in Claude Code:**
+```
+"scaffold a Python API test framework"
+"help me set up Java UI + API testing"
+"build a full-stack testing framework with mocks"
+"add non-functional testing (performance, security, chaos)"
+```
+
+### 📍 Tracks (Domain-Specific Extensions)
+Extend oracle-first testing to additional platforms and frameworks:
+
+| Track | Supported | Purpose | Status |
+|-------|-----------|---------|--------|
+| **Python + Pytest** | ✅ API, UI (Playwright), contracts | Generic Python/pytest patterns | ✅ Built-in skill |
+| **Java + TestNG** | ✅ API (RestAssured), UI (Selenium), contracts | Generic Java/TestNG patterns | ✅ Built-in skill |
+| **Java + Playwright** | 🔄 Planned | Modern Java UI testing (Playwright instead of Selenium) | Planned Phase 5+ |
+| **Mobile (Appium)** | ✅ iOS, Android | Native & hybrid mobile apps | ✅ [Appium track](tracks/appium/README.md) |
+| **Contract Testing** | ✅ Pact, OpenAPI, JSON Schema | API contract validation | ✅ [Contract track](tracks/contract-testing/README.md) |
+| **Synthetic Data** | 🔄 Planned | Faker/Factory patterns for test data | Planned Phase 5+ |
+| **Visual Testing** | 🔄 Planned | Screenshot comparison, visual regression | Planned Phase 5+ |
+| **BDD (Cucumber/Gherkin)** | 🔄 Planned | Behavior-driven test authoring | Planned Phase 5+ |
 
 ### 🔧 Execution Backends (MCP Patterns)
 - [CLI MCP](mcp/cli-mcp-pattern.md) — APIs, fast, cheap (~150-200 tokens per test)
@@ -88,6 +126,46 @@ Five lifecycle stages, each with detailed prompts:
 - [GETTING_STARTED.md](GETTING_STARTED.md) — 5-minute intro → 30-minute example → your tests
 - [CONTRIBUTING.md](CONTRIBUTING.md) — How to contribute
 - [Token Tradeoffs](guides/token-tradeoffs.md) — When to use which execution method
+
+---
+
+## Choosing Your Testing Stack
+
+**Start with the automation-architect skill.** It will interview you and help you choose:
+
+```
+automation-architect (Claude Code skill)
+  ↓
+Question 1: What are you testing?
+  ├─ REST API? → Proceed
+  ├─ Web UI? → Proceed
+  ├─ Full-stack (API + UI)? → Proceed
+  └─ Something else? → Proceed
+
+Question 2: Which language/framework?
+  ├─ Python
+  │  ├─ API: pytest + requests
+  │  ├─ UI: pytest + Playwright
+  │  └─ Mocks: pytest + WireMock Docker
+  │
+  ├─ Java
+  │  ├─ API: TestNG + RestAssured + Jackson
+  │  ├─ UI: TestNG + Selenium WebDriver
+  │  └─ Mocks: TestNG + WireMock Docker
+  │
+  └─ Other (add custom track)
+
+Question 3: Any special requirements?
+  ├─ Mock servers? → automation-architect-mock
+  ├─ Non-functional testing? → automation-architect-nfr
+  └─ No → Proceed to scaffolding
+
+Output:
+  ✅ Full test framework scaffold
+  ✅ 4-layer architecture (Data/Client/Service/Test)
+  ✅ Ready-to-run examples
+  ✅ CI/CD integration guide
+```
 
 ---
 
