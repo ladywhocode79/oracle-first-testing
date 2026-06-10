@@ -110,6 +110,61 @@ Agent reports: "Rate limiting: PASS. SQL injection attempt: blocked. Session fix
 
 ---
 
+## Critical: The Anchoring Effect
+
+There's a subtle but serious trap in this approach: **If the agent writes the oracle and the human just approves it, you get neither the research benefit nor the critical thinking.**
+
+### The Problem
+
+**Scenario: AI Generates Oracle (Bad)**
+```
+Agent: "Here's what I think the login should do..."
+[generates 30-item oracle]
+Human: "Looks good!" ✓
+[tests run, many edge cases missed]
+```
+
+**Why this fails:** Anchoring effect. Once AI presents a checklist, humans tend to accept it and stop thinking critically. You lose the benefit of human judgment.
+
+**Research shows:** When humans receive an AI-suggested oracle, they detect defects at ~40% F1 (only slightly better than AI alone). The 2x improvement only occurs when humans **author the oracle from scratch**.
+
+### The Solution
+
+**Scenario: Human Authors Oracle, AI Executes (Good)**
+```
+Human: [reads PRD, thinks about risks]
+Human: [writes their own checklist from scratch]
+Agent: [executes against that checklist]
+[tests catch gaps and edge cases because human thought critically]
+```
+
+### How to Avoid Anchoring
+
+1. **When creating an oracle:**
+   - ✅ Write YOUR checklist FIRST (from the PRD)
+   - ✅ Then ask AI for suggestions (use `/prompts/plan/review-ai-suggested-oracle.md`)
+   - ✅ Incorporate AI suggestions only if YOU think they're valuable
+   - ❌ Do NOT start by asking AI to suggest an oracle and then approve it
+
+2. **If you must use AI's suggestion:**
+   - Use `/prompts/plan/review-ai-suggested-oracle.md` to review critically
+   - Ask yourself: "Would I have thought of this without AI?"
+   - Edit AI's suggestions heavily (rewrite in YOUR words, YOUR priorities)
+   - Add items you care about that AI didn't mention
+
+3. **Risk-based approach:**
+   - **Security-critical features:** Always author oracle yourself (ignore AI suggestions)
+   - **Regulatory/compliance:** Always author oracle yourself
+   - **Routine features:** Can use AI-suggested oracle IF you review critically
+
+### Resources
+
+See:
+- `/guides/human-authored-oracle-guide.md` — How to write your own oracle
+- `/prompts/plan/review-ai-suggested-oracle.md` — How to review AI suggestions critically
+
+---
+
 ## When to Use the Oracle-Executor Split
 
 **Always.** Even when:
