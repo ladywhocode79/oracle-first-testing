@@ -1,6 +1,6 @@
 # Getting Started with Oracle-First Testing
 
-Welcome! This guide will get you up and running quickly.
+Welcome to the oracle-first testing framework! This guide will get you up and running quickly.
 
 ---
 

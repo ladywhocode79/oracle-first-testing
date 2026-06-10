@@ -1,6 +1,8 @@
-# Create Test Automation Skills
+# Oracle-First Testing
 
-**Oracle-first test automation framework for any platform and any LLM.**
+**Research-backed test automation framework for any platform and any LLM.**
+
+A comprehensive guide to using AI for testing effectively—grounded in the oracle-first principle that **humans decide what to test, and AI executes and reports**.
 
 A comprehensive, research-backed guide to using AI for testing effectively. This repo contains reusable prompts, architecture patterns, self-healing techniques, and worked examples—all grounded in the principle that **humans should decide what to test, and AI should execute and report**.
 
