@@ -1,2 +1,13 @@
 .claude/settings.local.json
 .DS_Store
+
+# Internal/Development Files (Keep Local)
+# These are for repo maintainers, not end users
+
+NORTH-STAR.md                      # Internal roadmap & vision (for maintainers)
+tests/                             # Testing the framework itself (not user-facing)
+*.local.*                          # Local configuration
+.sync.sh                           # Internal sync script (kept for reference)
+
+# Keep these LOCAL to avoid cluttering public repo
+# Users don't need to see internal development artifacts
