@@ -267,32 +267,88 @@ All phases complete and production-ready.
 
 ---
 
-## Installation & Usage
+## Three Ways to Use This Framework
 
-### For Claude Code Users
+This framework works **three ways**, depending on your needs and tools:
 
-If you're using Claude Code (VS Code, JetBrains, web, or CLI):
+### 🎯 Mode 1: Skills Only (Easiest - Claude Code Users)
+**Best for:** Claude Code users who want guided, automated scaffolding
 
 ```bash
-# Copy automation-architect skills to Claude Code
+# Install the skills
 cp -r automation-architect* ~/.claude/skills/
 
-# Then in Claude Code, just mention:
-# "help me build a test automation framework"
-# or any trigger phrase (see automation-architect/SKILL.md)
+# In Claude Code, say:
+"Help me scaffold a Python API test framework"
+
+# The skill handles everything:
+# - Interviews you (API? UI? Full-stack?)
+# - Chains prompts automatically
+# - Adds language-specific scaffolding
+# - Outputs complete, ready-to-run framework
 ```
 
-The skills will interview you and scaffold a full framework.
+**Outcome:** Full test framework in one conversation
 
-### For Everyone Else
+---
 
-Even if you don't use Claude Code:
-- Read the prompts (reusable with any LLM)
-- Follow the workflow guide
-- Apply the patterns
-- Use the examples as templates
+### 📚 Mode 2: Prompts Only (Most Flexible - Any LLM)
+**Best for:** Any LLM user (Claude, GPT, Gemini, etc.), any language, full control
 
-This repo is **not Claude-specific**; it just happens to ship Claude Code skills.
+```
+Step 1: Read /prompts/plan/ → Extract oracle from your PRD
+Step 2: Read /prompts/author/ → Generate tests from oracle
+Step 3: Read /prompts/execute/ → Run tests and report
+Step 4: Read /prompts/heal/ → Diagnose any failures
+Step 5: Read /prompts/analyze/ → Assess readiness
+```
+
+**Outcome:** Working test suite in your language of choice
+
+---
+
+### 🔗 Mode 3: Skills + Prompts Together (Hybrid - Maximum Control)
+**Best for:** Claude Code users who want both guidance AND flexibility
+
+```
+Use the skill for scaffolding + language setup
+Then use the prompts directly for:
+  - Custom workflows
+  - Advanced patterns
+  - Extending beyond the skill's scope
+  - Deep understanding
+```
+
+**Outcome:** Full framework + extensibility
+
+---
+
+## Quick Comparison
+
+| Mode | Tool Required | Setup Time | Control | Language | Scaffolding |
+|------|---------------|-----------|---------|----------|-------------|
+| **Skills** | Claude Code | 2 min | Low | Python/Java | ✅ Full |
+| **Prompts** | Any LLM | 10 min | High | Any | ❌ Manual |
+| **Both** | Claude Code | 5 min | High | Any | ✅ Full |
+
+---
+
+## Installation
+
+### Option 1: Skills Only
+```bash
+cp -r automation-architect* ~/.claude/skills/
+```
+Then use in Claude Code.
+
+### Option 2: Prompts Only
+No installation needed. Just read the prompts from `/prompts/` directory and use with your LLM.
+
+### Option 3: Both
+```bash
+cp -r automation-architect* ~/.claude/skills/
+# Plus read prompts from /prompts/ when you need advanced control
+```
 
 ---
 

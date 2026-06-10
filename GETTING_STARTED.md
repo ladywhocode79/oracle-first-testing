@@ -4,6 +4,60 @@ Welcome to the oracle-first testing framework! This guide will get you up and ru
 
 ---
 
+## Choose Your Usage Mode (Pick One)
+
+This framework works **three ways**. Pick the one that fits you:
+
+### 🎯 Mode 1: Skills Only (Easiest - Claude Code Users)
+**What:** Claude Code automatically scaffolds your framework  
+**Best for:** Want guided, fast setup + language scaffolding  
+**Setup:** Copy skills to `~/.claude/skills/` (2 min)  
+**Outcome:** Complete framework ready to use
+
+```bash
+cp -r automation-architect* ~/.claude/skills/
+# Then in Claude Code: "Help me scaffold a Python API test framework"
+```
+
+### 📚 Mode 2: Prompts Only (Most Flexible - Any LLM)
+**What:** Step through prompts manually with any LLM  
+**Best for:** Using GPT, Gemini, etc. + want full control  
+**Setup:** No installation (start reading prompts immediately)  
+**Outcome:** Working test suite in your language of choice
+
+Steps:
+1. Read `/prompts/plan/` → Extract oracle
+2. Read `/prompts/author/` → Generate tests
+3. Read `/prompts/execute/` → Run tests
+4. Read `/prompts/heal/` → Diagnose failures
+5. Read `/prompts/analyze/` → Assess readiness
+
+### 🔗 Mode 3: Skills + Prompts (Hybrid - Maximum Flexibility)
+**What:** Use skills for scaffolding, then use prompts for deep control  
+**Best for:** Claude Code users who want both convenience AND flexibility  
+**Setup:** Copy skills + read prompts as needed (5 min)  
+**Outcome:** Framework + advanced patterns + deep understanding
+
+---
+
+## Which Mode Should You Pick?
+
+| Your Situation | Pick Mode | Time | Control |
+|---|---|---|---|
+| Using Claude Code, want fast | **Mode 1** | 2 min | Low |
+| Using GPT/Gemini/other LLM | **Mode 2** | 10 min | High |
+| Using Claude Code, want flexibility | **Mode 3** | 5 min | High |
+
+---
+
+## Now Choose What to Learn First
+
+Based on your mode, follow the path below:
+
+**All modes start here:**
+
+---
+
 ## Five Minutes: Understand the Core Idea
 
 **The Oracle-Executor Principle**

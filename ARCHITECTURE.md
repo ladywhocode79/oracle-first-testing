@@ -1,4 +1,32 @@
-# Architecture: Prompts, Skills, and Tracks
+# Architecture: Three Usage Modes
+
+This framework can be used **three distinct ways**. Understand which one fits your needs.
+
+---
+
+## Three Modes of Usage
+
+```
+MODE 1: SKILLS ONLY                MODE 2: PROMPTS ONLY           MODE 3: BOTH
+(Claude Code Users)                (Any LLM Users)                (Claude Code + Control)
+
+User: "Scaffold Python tests"       User: reads /prompts/          User: "Scaffold tests"
+         ↓                                 ↓                              ↓
+Skill interviews                    Step 1: /prompts/plan/         Skill scaffolds
+  ↓                                 Step 2: /prompts/author/       Then uses /prompts/
+Skill chains prompts                Step 3: /prompts/execute/      for advanced patterns
+  ↓                                 Step 4: /prompts/heal/
+Skill adds Python scaffold          Step 5: /prompts/analyze/      Result:
+  ↓                                 ↓                              Framework + Flexibility
+Output: Complete framework          Output: Working framework
+
+FAST (2 min)                        FLEXIBLE (10 min)              BALANCED (5 min)
+LOW CONTROL                         HIGH CONTROL                   HIGH CONTROL
+```
+
+---
+
+## How the Framework Is Organized
 
 How the oracle-first framework is organized and how the pieces fit together.
 
