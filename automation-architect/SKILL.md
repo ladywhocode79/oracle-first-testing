@@ -140,6 +140,57 @@ tests will help clarify the PRD.
 
 ---
 
+### Round 0.5 — Oracle Authorship Mode (CRITICAL)
+
+⚠️ **This question shapes the quality of your tests.** See `/concepts/oracle-executor-principle.md`.
+
+```
+Before we scaffold code, let's decide how we'll create your oracle
+(the checklist of what the system should do).
+
+Research shows:
+  • Human-authored oracle: ~50-60% F1 score on defect detection ✓
+  • AI-suggested oracle: ~40-45% F1 (must review critically)
+  • AI-generated oracle: ~30% F1 (not recommended — anchoring effect)
+
+Q0.5. How would you like to create your test oracle?
+
+  [A] Human-Authored (RECOMMENDED for security/compliance)
+      → I will guide you through `/guides/human-authored-oracle-guide.md`
+      → You write the checklist yourself from the PRD
+      → Then I help generate tests from YOUR oracle
+      → Best for: security-critical, regulatory, high-risk features
+      → Time: 30 minutes, Accuracy: ~50-60% F1
+
+  [B] AI-Suggested (for routine features)
+      → I'll suggest an oracle using `/prompts/plan/extract-oracle-from-prd.md`
+      → You review it critically using `/prompts/plan/review-ai-suggested-oracle.md`
+      → You refine it (your decisions, not just approval)
+      → Then I help generate tests
+      → Best for: routine features, time-constrained work
+      → Time: 20 minutes, Accuracy: ~40-45% F1
+      → ⚠️  Risk: Anchoring effect if you just approve
+
+  [C] Just proceed with AI oracle
+      → ❌ NOT RECOMMENDED (leads to anchoring effect, ~30% F1)
+      → See: /concepts/oracle-executor-principle.md
+
+Which approach? [A/B/C]
+```
+
+**If [A]:** Guide user through `/guides/human-authored-oracle-guide.md`:
+  1. Step 1: Read PRD carefully
+  2. Step 2: Brain dump your concerns
+  3. Step 3: Organize into sections (happy path, edge cases, errors, security)
+  4. Step 4: Reality check
+  5. Step 5: Optionally compare with AI suggestions
+
+**If [B]:** Run oracle suggestion, then guide through critical review
+
+**If [C]:** Warn about anchoring effect, offer to switch to [A] or [B]
+
+---
+
 ### Round 1 — Language Track
 
 Discover available tracks by checking for
